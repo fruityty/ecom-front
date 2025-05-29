@@ -4,20 +4,28 @@ import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
 import Typography from '@mui/material/Typography';
 
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: "#F2F0EF",
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: "left",
-    color: theme.palette.text.secondary,
-    // width: "100%",
-    flex: '1 1 0%',
-}));
-
 export default function Footbar() {
     return (
         <Box component="footer"
-            sx={{ bgcolor: "#F2F0EF", p: 4, width: '100vw' }}>
+            sx={{
+                bgcolor: "#F2F0EF", p: 4, width: '100vw',
+                height: {
+                    xs: 846,    
+                    md: 500,
+                },
+                pt: {
+                    xs: 4,    // theme.spacing(4) = 32px (default spacing unit is 8px)
+                    md: 25, // 12.5 * 8 = 100px
+                    },
+                pb: {
+                    xs: 4,
+                    md: 25,
+                    },
+                px: {
+                    xs: 2,    // 16px
+                    md: 25, // 100px
+    },
+            }}>
             <Grid container spacing={2}
                 sx={{
                     bgcolor: "#F2F0EF",
@@ -26,7 +34,7 @@ export default function Footbar() {
                 direction={{ xs: 'column', md: 'row' }}
             >
                 {/* Left column: xs*/}
-                <Grid item xs={12}
+                <Grid xs={12}
                     sx={{ display: { xs: 'block', md: 'none' } }}>
                     <Typography
                         variant="h1"
@@ -52,22 +60,26 @@ export default function Footbar() {
                 </Grid>
 
                 {/* Right columns: xs */}
-                <Grid container item spacing={2} xs={12} md={7} lg={8}
+                <Grid container  spacing={2} xs={12} md={7} lg={8}
                     direction={{ xs: 'column', md: 'row' }}
-                    sx={{ display: { xs: 'block', md: 'none' } }}
+                    sx={{ display: { xs: 'block', md: 'none',  } }}
                 >
                     {/* Now each of these will be half-width on xs (6/12) and quarter-width on lg (3/12) */}
-                    <Grid container item xs={12} lg={3} wrap="nowrap"
+                    <Grid container  xs={12} lg={3} wrap="nowrap"
                         sx={{
-                            bgcolor: "blue",
+                            // bgcolor: "blue",
                             justifyContent: 'flex-start',
                         }}>
-                        <Grid item size={6} xs={6} lg={3} >
-                            <Item>
+                        <Grid  size={6} xs={6} lg={3} 
+                        sx={{ 
+                            height: "146px",
+                            mb: 2, }} 
+                        >
+                            <Box>
                                 <Box
                                     id="company"
                                     sx={{
-                                        fontSize: 12,
+                                        fontSize: 18,
                                         textTransform: "uppercase",
                                         fontWeight: 'bold',
                                         pb: 4,
@@ -85,15 +97,19 @@ export default function Footbar() {
                                     <li>Works</li>
                                     <li>Career</li>
                                 </Box>
-                            </Item>
+                            </Box>
                         </Grid>
 
-                        <Grid item size={6} xs={6} lg={3}>
-                            <Item>
+                        <Grid  size={6} xs={6} lg={3} 
+                        sx={{ 
+                            height: "146px",
+                            mb: 2, }} 
+                        >
+                            <Box>
                                 <Box
                                     id="help"
                                     sx={{
-                                        fontSize: 12,
+                                        fontSize: 18,
                                         textTransform: "uppercase",
                                         fontWeight: 'bold',
                                         pb: 4,
@@ -111,20 +127,20 @@ export default function Footbar() {
                                     <li>Terms & Conditions</li>
                                     <li>Privacy Policy</li>
                                 </Box>
-                            </Item>
+                            </Box>
                         </Grid>
                     </Grid>
                     <Grid container xs={12} lg={3} wrap="nowrap"
                         sx={{
-                            bgcolor: "blue",
+                            // bgcolor: "blue",
                             justifyContent: 'space-between',
                         }}>
-                        <Grid item size={6} xs={6} lg={3} >
-                            <Item>
+                        <Grid  size={6} xs={6} lg={3} >
+                            <Box>
                                 <Box
                                     id="faq"
                                     sx={{
-                                        fontSize: 12,
+                                        fontSize: 18,
                                         textTransform: "uppercase",
                                         fontWeight: 'bold',
                                         pb: 4,
@@ -142,15 +158,15 @@ export default function Footbar() {
                                     <li>Orders</li>
                                     <li>Payments</li>
                                 </Box>
-                            </Item>
+                            </Box>
                         </Grid>
 
-                        <Grid item size={6} xs={6} lg={3}>
-                            <Item>
+                        <Grid  size={6} xs={6} lg={3}>
+                            <Box>
                                 <Box
                                     id="resources"
                                     sx={{
-                                        fontSize: 12,
+                                        fontSize: 18,
                                         textTransform: "uppercase",
                                         fontWeight: 'bold',
                                         pb: 4,
@@ -168,24 +184,26 @@ export default function Footbar() {
                                     <li>How to - Blog</li>
                                     <li>Youtube Playlist</li>
                                 </Box>
-                            </Item>
+                            </Box>
                         </Grid>
                     </Grid>
                 </Grid>
 
                 {/* ---------------------------------------------------------- */}
                 {/* All columns: md */}
-                <Grid container spacing={2} md={12} wrap="nowrap" height={177} 
+                <Grid container spacing={2} md={12} wrap="nowrap" height={177}
                     sx={{
                         display: {
-                            xs: 'none', md: 'flex',width: '100vw',
+                            xs: 'none', md: 'flex', width: '100vw',
                         },
                         justifyContent: 'space-between',
-                        backgroundColor: 'red',
+                        // backgroundColor: 'red',
                     }}
                 >
-                    <Grid container height={177}>
-                        <Item padding='0'>
+                    <Grid container height={177}
+                    //sx={{ backgroundColor: 'red' }}
+                    >
+                        <Box>
                             <Box sx={{ textTransform: "uppercase", pb: 6.25 }}>
                                 <Typography
                                     variant="h1"
@@ -212,10 +230,13 @@ export default function Footbar() {
                                     women to men.
                                 </Typography>
                             </Box>
-                        </Item>
+                        </Box>
                     </Grid>
-                    <Grid container height={177}>
-                        <Item>
+                    <Grid container height={177} direction="column"
+                    // sx={{ backgroundColor: 'red' }}
+                    >
+
+                        <Box>
                             <Box
                                 id="company"
                                 sx={{ fontSize: 16, textTransform: "uppercase", pb: 6.5 }}
@@ -232,10 +253,12 @@ export default function Footbar() {
                                 <li>Works</li>
                                 <li>Career</li>
                             </Box>
-                        </Item>
+                        </Box>
+
                     </Grid>
-                    <Grid container height={177}>
-                        <Item>
+                    <Grid container height={177} direction="column"
+                    >
+                        <Box>
                             <Box
                                 id="help"
                                 sx={{ fontSize: 16, textTransform: "uppercase", pb: 6.5 }}
@@ -252,10 +275,11 @@ export default function Footbar() {
                                 <li>Terms & Conditions</li>
                                 <li>Privacy Policy</li>
                             </Box>
-                        </Item>
+                        </Box>
                     </Grid>
-                    <Grid container height={177}>
-                        <Item>
+                    <Grid container height={177} direction="column"
+                    >
+                        <Box>
                             <Box
                                 id="faq"
                                 sx={{ fontSize: 16, textTransform: "uppercase", pb: 6.5 }}
@@ -272,10 +296,11 @@ export default function Footbar() {
                                 <li>Orders</li>
                                 <li>Payments</li>
                             </Box>
-                        </Item>
+                        </Box>
                     </Grid>
-                    <Grid container height={177}>
-                        <Item>
+                    <Grid container height={177} direction="column"
+                    >
+                        <Box>
                             <Box
                                 id="resources"
                                 sx={{ fontSize: 16, textTransform: "uppercase", pb: 6.5 }}
@@ -292,7 +317,7 @@ export default function Footbar() {
                                 <li>How to - Blog</li>
                                 <li>Youtube Playlist</li>
                             </Box>
-                        </Item>
+                        </Box>
                     </Grid>
                 </Grid>
             </Grid>

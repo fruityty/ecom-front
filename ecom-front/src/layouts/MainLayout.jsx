@@ -1,14 +1,24 @@
 // src/layouts/MainLayout.tsx
-import { colors } from "@mui/material";
+import { Box } from "@mui/material";
 import Headbar from "../components/Headbar";
 import Footbar from "../components/Footbar";
 
 export default function MainLayout({ children }) {
-   return (
-    <>
-    <header><Headbar /></header>
-    <main>{/* page content here */}</main>
-    <footer><Footbar /></footer>
-    </>
+  return (
+    <Box 
+      sx={{ 
+        display: "flex", 
+        flexDirection: "column", 
+        minHeight: "100vh" 
+      }}
+    >
+      <header><Headbar /></header>
+
+      <Box component="main" sx={{ flex: 1 }}>
+        {children}
+      </Box>
+
+      <footer><Footbar /></footer>
+    </Box>
   );
 }

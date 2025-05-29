@@ -9,12 +9,15 @@ export default function MainLayout({ children }) {
       sx={{ 
         display: "flex", 
         flexDirection: "column", 
-        minHeight: "100vh" 
+        minHeight: "100vh",
+        width: '100%',
       }}
     >
       <header><Headbar /></header>
 
-      <Box component="main" sx={{ flex: 1 }}>
+      <Box component="main" sx={{ flex: 1,
+        // backgroundColor: 'red'
+       }} >
         {children}
       </Box>
 

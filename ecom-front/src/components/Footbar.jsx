@@ -23,7 +23,7 @@ export default function Footbar() {
                     },
                 px: {
                     xs: 2,    // 16px
-                    md: 25, // 100px
+                    md: '6.9%', // 100px
     },
             }}>
             <Grid container spacing={2}

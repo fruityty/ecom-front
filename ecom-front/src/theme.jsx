@@ -20,7 +20,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Your Figma Font", sans-serif',
+    fontFamily: '"Roboto", sans-serif',
     h1: { fontSize: '3rem', fontWeight: 700, lineHeight: 1.2, color: '#000000' },
     h2: { fontSize: '2rem', fontWeight: 700, lineHeight: 1.3, color: '#000000' },
     body1: { fontSize: '1rem', lineHeight: 1.5, color: '#000000' },

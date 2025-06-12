@@ -1,6 +1,5 @@
 import { Box, Grid } from "@mui/material";
 import * as React from "react";
-import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
 import Typography from '@mui/material/Typography';
 
@@ -16,15 +15,15 @@ export default function Footbar() {
                 pt: {
                     xs: 4,    // theme.spacing(4) = 32px (default spacing unit is 8px)
                     md: 25, // 12.5 * 8 = 100px
-                    },
+                },
                 pb: {
                     xs: 4,
                     md: 25,
-                    },
+                },
                 px: {
                     xs: 2,    // 16px
                     md: '6.9%', // 100px
-    },
+                },
             }}>
             <Grid container spacing={2}
                 sx={{

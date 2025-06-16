@@ -39,17 +39,17 @@ function Headbar() {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
-
   };
   const handleCloseCart = () => {
     setAnchorElCart(null);
   };
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+    <AppBar position="static" sx={{ px: { xs: "0px", md: "0px" } }}>
+      <Container sx={{ }}>
+        <Toolbar >
+          {/* Desktop Logo & Pages (Left Section) */}
+          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, }} />
           <Typography
             variant="h1"
             noWrap
@@ -69,7 +69,8 @@ function Headbar() {
             SHOP.CO
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          {/* Desktop Nav Pages - Removed flexGrow: 1 */}
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page}
@@ -81,8 +82,8 @@ function Headbar() {
             ))}
           </Box>
 
-          {/* mobile xs */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          {/* Mobile Menu Icon (Left) */}
+          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -117,6 +118,7 @@ function Headbar() {
             </Menu>
           </Box>
 
+          {/* Mobile Logo (Center) - Removed flexGrow: 1, added mr:auto to push to right only*/}
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
@@ -126,7 +128,7 @@ function Headbar() {
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
+              flexGrow: 1, // Keep flexGrow for mobile Typography to push cart/avatar
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
@@ -136,11 +138,17 @@ function Headbar() {
           >
             SHOP.CO
           </Typography>
-          {/* mobile xs */}
 
-          <Box sx={{ flexGrow: 0, mr: 1}}>
+          {/* This empty Box will take up all available space and push the following elements to the right */}
+          {/* For desktop, it pushes the cart/avatar to the right. */}
+          {/* For mobile, the Typography's flexGrow already handles push, but this ensures general behavior. */}
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} />
+
+
+          {/* Cart Icon (Right Section) */}
+          <Box sx={{ flexGrow: 0, mr: 1 }}>
             <Tooltip title="Open cart">
-              <IconButton onClick={handleOpenCart}  sx={{ }}>
+              <IconButton onClick={handleOpenCart}>
                 <ShoppingCartOutlinedIcon />
               </IconButton>
             </Tooltip>
@@ -160,14 +168,15 @@ function Headbar() {
               open={Boolean(anchorElCart)}
               onClose={handleCloseCart}
             >
-              {carts.map((setting) => (
-                <MenuItem key={carts} onClick={handleCloseCart}>
-                  <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
+              {carts.map((item, index) => ( // Use item and index for key if items are not unique
+                <MenuItem key={index} onClick={handleCloseCart}>
+                  <Typography sx={{ textAlign: 'center' }}>{item}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
 
+          {/* User Avatar (Far Right Section) */}
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

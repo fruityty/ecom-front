@@ -7,7 +7,7 @@ export default function Footbar() {
     return (
         <Box component="footer"
             sx={{
-                bgcolor: "#F2F0EF", p: 4, width: '100vw',
+                bgcolor: "#F2F0EF", p: 4, width: '100%',
                 height: {
                     xs: 846,    
                     md: 500,
@@ -193,7 +193,7 @@ export default function Footbar() {
                 <Grid container spacing={2} md={12} wrap="nowrap" height={177}
                     sx={{
                         display: {
-                            xs: 'none', md: 'flex', width: '100vw',
+                            xs: 'none', md: 'flex',
                         },
                         justifyContent: 'space-between',
                         // backgroundColor: 'red',

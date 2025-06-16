@@ -21,7 +21,7 @@ export default function Logobar() {
       maxWidth={false}
       sx={{
         bgcolor: 'black',
-        width: '100vw',
+        width: '100%',
         height: {
           xs: 146,
           md: 122,

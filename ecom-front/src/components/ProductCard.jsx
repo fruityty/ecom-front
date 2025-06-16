@@ -1,23 +1,41 @@
 import { Card, CardMedia, CardContent, Typography } from "@mui/material";
 
-const products = [
-  { id: 1, name: "T-shirt", price: 300, image: "https://picsum.photos/200?random=1" },
-  { id: 2, name: "Jeans", price: 700, image: "https://picsum.photos/200?random=2" },
-  { id: 3, name: "Sneakers", price: 1500, image: "https://picsum.photos/200?random=3" },
-  // Add a few more…
-];
+
 
 export default function ProductCard({ product }) {
   return (
-    <Card>
+    <Card
+      sx={{
+        height: '100%', // Make card take full height of grid item
+        display: 'flex',
+        flexDirection: 'column',
+        width: {xs: "172px", md: "281px"},
+        borderRadius: '8px',
+        boxShadow: 3, // Add some shadow for depth
+        transition: 'transform 0.2s ease-in-out', // Smooth hover effect
+        '&:hover': {
+          transform: 'translateY(-5px)', // Lift on hover
+        },
+      }}>
       <CardMedia
         component="img"
-        height="140"
+        sx={{
+          height: { xs: 150, sm: 180, md: 200 }, // Responsive image height
+          width: '100%', // Image takes full width of its container
+          objectFit: 'cover', // Ensures image covers the area nicely
+          borderRadius: '8px 8px 0 0', // Rounded top corners
+          
+        }}
         image={product.image}
         alt={product.name}
       />
       <CardContent>
-        <Typography variant="h6">{product.name}</Typography>
+        <Typography variant="h6" sx={{
+          overflow: 'hidden',
+          whiteSpace: 'nowrap',
+          textOverflow: 'ellipsis', // Adds "..." to indicate truncated text
+          width: { xs: '100%', md: '100%' },
+        }}>{product.name}</Typography>
         <Typography color="text.secondary">{product.price}฿</Typography>
       </CardContent>
     </Card>

@@ -1,0 +1,116 @@
+/* General styling for the sidebar container */
+.filter-sidebar {
+    width: 295px;
+    padding: 16px; 
+    border-radius: 12px; /* Similar to MUI borderRadius: 3 */
+    background-color: #fff;
+    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),
+                0px 1px 1px 0px rgba(0,0,0,0.14),
+                0px 1px 3px 0px rgba(0,0,0,0.12); /* Mimicking MUI boxShadow: 1 */
+    display: flex;
+    flex-direction: column;
+ 
+
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif; /* Recommended to define a font */
+}
+
+/* Title styling */
+.filter-sidebar-title {
+    font-size: 1.25rem; 
+    font-weight: 500;
+    margin-bottom: 8px; 
+    margin-top: 0px; 
+    color: rgba(0, 0, 0, 0.87);
+}
+
+/* Categories container for flex-grow behavior */
+.filter-sidebar-categories {
+   
+    overflow-y: auto; /* In case many categories exceed height */
+    margin-top: 16px;
+    margin-bottom: 16px; /* Space before apply button */
+}
+
+/* Base styling for category buttons */
+.category-button {
+    width: 100%; /* Similar to MUI fullWidth */
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    margin-bottom: 8px; /* Similar to MUI mb: 1 */
+    border-radius: 212px; /* Similar to MUI borderRadius: 2 */
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out; /* Smooth transitions */
+    border: 2px transparent; 
+    box-shadow: none; /* Default no shadow */
+    background-color: #F7F7F7; /* Light gray when not selected */
+    color: #222; /* Dark text when not selected */
+    font-weight: 400; /* Normal weight when not selected */
+    outline: none; /* Removes default browser outline on focus */
+}
+
+/* Styling for selected category button */
+.category-button.selected {
+    background-color: #222; /* Black background when selected */
+    color: #fff; /* White text when selected */
+    font-weight: 700; /* Bold weight when selected */
+    box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),
+                0px 5px 8px 0px rgba(0,0,0,0.14),
+                0px 1px 14px 0px rgba(0,0,0,0.12); /* Mimicking MUI boxShadow: 2 */
+}
+
+/* Hover effects for category buttons */
+.category-button:hover {
+    border: none;
+    background-color: #ececec; /* Lighter gray on hover for unselected */
+    color: #222;
+}
+
+.category-button.selected:hover {
+    background-color: #222; /* Darker blue on hover for selected */
+    color: #fff;
+}
+
+/* Arrow icon styling */
+.arrow-icon {
+    font-weight: bold;
+    margin-left: 8px;
+}
+
+.price-slider-container {
+    padding: 0 10px;
+    margin-bottom: 20px;
+}
+
+.slider-label {
+    /* padding: 0 10px; */
+    margin: 20px 0 10px 0;
+}
+
+/* Apply Filter button styling */
+.apply-button {
+    margin-top: 24px; /* Similar to MUI mt: 3 */
+    border-radius: 12px; /* Similar to MUI borderRadius: 3 */
+    font-weight: 700;
+    width: 100%;
+    padding: 10px 16px;
+    font-size: 0.9375rem;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+    border: none; /* No border for 'contained' style */
+    outline: none; /* Removes default browser outline on focus */
+
+    background-color: #222; /* Primary blue color */
+    color: #fff; /* White text */
+}
+
+/* Hover effect for apply button */
+.apply-button:hover {
+    background-color: #fff; /* Darker background on hover */
+    color: #222;
+    border: 2px solid;
+    border-radius: 12px;
+}

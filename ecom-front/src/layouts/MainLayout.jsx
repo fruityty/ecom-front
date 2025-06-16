@@ -1,5 +1,5 @@
 // src/layouts/MainLayout.tsx
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import Headbar from "../components/Headbar";
 import Footbar from "../components/Footbar";
 
@@ -15,11 +15,18 @@ export default function MainLayout({ children }) {
     >
       <header><Headbar /></header>
 
-      <Box component="main" sx={{ flex: 1,
-        // backgroundColor: 'red'
-       }} >
+  
+      <Container
+        maxWidth="lg" // <<<--- Use "lg" for 1200px max, or "xl" for 1536px max
+        sx={{
+          flexGrow: 1, // Allows content to fill available vertical space
+          py: 3,       // Padding top/bottom for overall content
+          // If you want padding on the sides for the entire main content:
+          // px: { xs: 2, sm: 3, md: 4 }
+        }}
+      >
         {children}
-      </Box>
+      </Container>
 
       <footer><Footbar /></footer>
     </Box>

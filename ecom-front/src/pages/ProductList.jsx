@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import React from 'react';
 import { getMockProducts } from "./MockProducts";
+import { Link } from "react-router-dom";
 
 const products = getMockProducts(23)
 
@@ -130,6 +131,8 @@ export default function ProductListPage() {
                                     // mb: 4, // Margin bottom for vertical spacing
                                     display: 'flex', // Ensures ProductCard fills its container
                                 }}
+                                component={Link}
+                                to={`/product/${p.id}`}
                             >
                                 <ProductCard product={p} />
                             </Box>

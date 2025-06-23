@@ -8,13 +8,15 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { useState } from "react";
 import { getMockProducts } from "./MockProducts";
+import { useCart } from "../context/CartContext";
 
 const products = getMockProducts(23);
 
-export default function ProductDetailPage({ addToCart }) {
+export default function ProductDetailPage() {
   const { id } = useParams();
   const product = products.find((p) => p.id === Number(id));
   const [quantity, setQuantity] = useState(1);
+  const { addToCart } = useCart();
 
   // calculate price
   let discountedPrice = Math.floor(product.price * (product.salePercentage / 100));

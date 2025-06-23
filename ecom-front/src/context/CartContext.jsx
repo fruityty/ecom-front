@@ -51,7 +51,7 @@ export function CartProvider({ children }) {
                 addToCart,
                 removeFromCart,
                 updateQuantity,
-                clearCart
+                clearCart,
             }}>
                 {children}
         </CartContext.Provider>

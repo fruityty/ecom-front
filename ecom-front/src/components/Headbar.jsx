@@ -1,37 +1,39 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import { Link } from '@mui/material';
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  IconButton,
+  Typography,
+  Menu,
+  Container,
+  Avatar,
+  Button,
+  Tooltip,
+  MenuItem,
+} from '@mui/material';
+import {
+  Menu as MenuIcon,
+  Adb as AdbIcon,
+  ShoppingCartOutlined as ShoppingCartOutlinedIcon
+} from '@mui/icons-material';
+import { Link } from "react-router-dom";
 
 const pages = ['On Sale', 'New Arrivals', 'Brands'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-const carts = ['item1', 'item2', 'item3', 'item4'];
+
 
 function Headbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const [anchorElCart, setAnchorElCart] = React.useState(null);
+
+
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
-  };
-  const handleOpenCart = (event) => {
-    setAnchorElCart(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
@@ -41,16 +43,14 @@ function Headbar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  const handleCloseCart = () => {
-    setAnchorElCart(null);
-  };
+
 
   return (
     <AppBar position="static" sx={{ px: { xs: "0px", md: "0px" } }}>
-      <Container sx={{ }}>
+      <Container sx={{}}>
         <Toolbar >
           {/* Desktop Logo & Pages (Left Section) */}
-          
+
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, }} /> */}
           <Typography
             variant="h1"
@@ -70,7 +70,7 @@ function Headbar() {
           >
             SHOP.CO
           </Typography>
-         
+
 
           {/* Desktop Nav Pages - Removed flexGrow: 1 */}
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
@@ -142,8 +142,6 @@ function Headbar() {
             SHOP.CO
           </Typography>
 
-          {/* This empty Box will take up all available space and push the following elements to the right */}
-          {/* For desktop, it pushes the cart/avatar to the right. */}
           {/* For mobile, the Typography's flexGrow already handles push, but this ensures general behavior. */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} />
 
@@ -151,32 +149,11 @@ function Headbar() {
           {/* Cart Icon (Right Section) */}
           <Box sx={{ flexGrow: 0, mr: 1 }}>
             <Tooltip title="Open cart">
-              <IconButton onClick={handleOpenCart}>
+              {/* IconButton as Link */}
+              <IconButton component={Link} to="/cart">
                 <ShoppingCartOutlinedIcon />
               </IconButton>
             </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElCart}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElCart)}
-              onClose={handleCloseCart}
-            >
-              {carts.map((item, index) => ( // Use item and index for key if items are not unique
-                <MenuItem key={index} onClick={handleCloseCart}>
-                  <Typography sx={{ textAlign: 'center' }}>{item}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
           </Box>
 
           {/* User Avatar (Far Right Section) */}

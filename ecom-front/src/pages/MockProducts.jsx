@@ -43,8 +43,8 @@ const generateNewProduct = (id) => {
     const name = `${baseName} ${shoeType} ${id}`; // Ensure unique name suffix
     const price = Math.floor(Math.random() * (2800 - 550 + 1)) + 500; // Price between 550 and 2800
     const imageText = `${category.replace(/\s/g, '')}-${id}`; // Image text based on category and id
-    const imageUrl = `https://placehold.co/400x400/${Math.floor(Math.random()*16777215).toString(16)}/${Math.floor(Math.random()*16777215).toString(16)}?text=${imageText}`;
-
+    // const imageUrl = `https://placehold.co/400x400/${Math.floor(Math.random()*16777215).toString(16)}/${Math.floor(Math.random()*16777215).toString(16)}?text=${imageText}`;
+    const imageUrl = `https://placehold.co/400x400/CCCCCC/333?text=${encodeURIComponent(name)}`
     return {
         id: id, // Use the passed ID
         name: name,
@@ -63,121 +63,145 @@ const initialProducts = [
         id: 1,
         name: "Urban Stride Sneakers",
         price: 1800,
-        image: "https://placehold.co/400x400/E0E0E0/333?text=Sneakers-A",
+        image: "https://placehold.co/400x400/D0D0D0/444?text=Urban%20Stride%20Sneakers",
         category: "Sneakers",
         brand: { id: "B001", name: "SoleMate" },
         createdAt: "2024-07-10T09:20:00Z",
-        salePercentage: 0
+        salePercentage: 0,
+        description: "Step confidently into the city with Urban Stride Sneakers. Lightweight mesh and cushioned soles keep you comfortable all day, while the bold design adds a modern edge to any outfit.",
+        colors: ["#25282a", "#e0e0e0", "#4299e1"]
     },
     {
         id: 2,
         name: "Classic Leather Boots",
         price: 2500,
-        image: "https://placehold.co/400x400/D0D0D0/444?text=Boots-B",
+        image: "https://placehold.co/400x400/D0D0D0/444?text=Classic%20Leather%20Boots",
         category: "Boots",
         brand: { id: "B002", name: "StrideRight" },
         createdAt: "2024-07-12T12:15:00Z",
-        salePercentage: 20
+        salePercentage: 20,
+        description: "Upgrade your wardrobe with Classic Leather Boots. Made from genuine leather, these boots offer timeless style and rugged durability for any season.",
+        colors: ["#6b4f29", "#c19a6b", "#fff"]
     },
     {
         id: 3,
         name: "Summer Breeze Sandals",
         price: 950,
-        image: "https://placehold.co/400x400/C0C0C0/555?text=Sandals-C",
+        image: "https://placehold.co/400x400/C0C0C0/555?text=Summer%20Breeze%20Sandals",
         category: "Sandals",
         brand: { id: "B003", name: "FootFlow" },
         createdAt: "2024-07-08T17:00:00Z",
-        salePercentage: 0
+        salePercentage: 0,
+        description: "Enjoy warm days in style with Summer Breeze Sandals. Their breathable design and soft straps make every step light and cool.",
+        colors: ["#e1c699", "#ffffff", "#a7bcb9"]
     },
     {
         id: 4,
         name: "Professional Oxford Shoes",
         price: 2800,
-        image: "https://placehold.co/400x400/B0B0B0/666?text=Oxfords-D",
+        image: "https://placehold.co/400x400/B0B0B0/666?text=Professional%20Oxford%20Shoes",
         category: "Dress Shoes",
         brand: { id: "B002", name: "StrideRight" },
         createdAt: "2024-06-25T10:00:00Z",
-        salePercentage: 30
+        salePercentage: 30,
+        description: "Make an impression at work or formal events with Professional Oxford Shoes. Crafted for comfort and sophistication, they pair perfectly with any suit.",
+        colors: ["#3a3a3a", "#8d5524", "#d8c3a5"]
     },
     {
         id: 5,
         name: "Trail Blazer Hiking Boots",
         price: 2100,
-        image: "https://placehold.co/400x400/A0A0A0/777?text=HikingBoots-E",
+        image: "https://placehold.co/400x400/A0A0A0/777?text=Trail%20Blazer%20Hiking%20Boots",
         category: "Boots",
         brand: { id: "B004", name: "PeakStep" },
         createdAt: "2024-07-01T14:30:00Z",
-        salePercentage: 20
+        salePercentage: 20,
+        description: "Conquer any trail with Trail Blazer Hiking Boots. Featuring waterproof material and rugged soles, these boots keep your feet protected and stable on rough terrain.",
+        colors: ["#45503b", "#949494", "#3e2723"]
     },
     {
         id: 6,
         name: "Comfort Slip-On Loafers",
         price: 1600,
-        image: "https://placehold.co/400x400/909090/888?text=Loafers-F",
+        image: "https://placehold.co/400x400/909090/888?text=Comfort%20Slip-On%20Loafers",
         category: "Loafers",
         brand: { id: "B001", name: "SoleMate" },
         createdAt: "2024-07-05T08:00:00Z",
-        salePercentage: 0
+        salePercentage: 0,
+        description: "Slip into all-day comfort with these loafers. Soft lining and flexible outsoles make them the perfect choice for work or leisure.",
+        colors: ["#353535", "#8b8b8b", "#e5e5e5"]
     },
     {
         id: 7,
         name: "Responsive Running Shoes",
         price: 1950,
-        image: "https://placehold.co/400x400/808080/999?text=RunningShoes-G",
+        image: "https://placehold.co/400x400/808080/999?text=Responsive%20Running%20Shoes",
         category: "Running Shoes",
         brand: { id: "B005", name: "SwiftKicks" },
         createdAt: "2024-07-11T16:45:00Z",
-        salePercentage: 30
+        salePercentage: 30,
+        description: "Run faster and longer with Responsive Running Shoes. Engineered for energy return and breathability, they support you through every stride.",
+        colors: ["#264653", "#e76f51", "#f4a261"]
     },
     {
         id: 8,
         name: "Waterproof Rain Boots",
         price: 1300,
-        image: "https://placehold.co/400x400/707070/AAA?text=RainBoots-H",
+        image: "https://placehold.co/400x400/707070/AAA?text=Waterproof%20Rain%20Boots",
         category: "Boots",
         brand: { id: "B003", name: "FootFlow" },
         createdAt: "2024-06-28T20:10:00Z",
-        salePercentage: 20
+        salePercentage: 20,
+        description: "Stay dry and stylish with Waterproof Rain Boots. Their slip-resistant soles and sealed seams make them ideal for rainy days.",
+        colors: ["#3b5998", "#707070", "#ffffff"]
     },
     {
         id: 9,
         name: "Elegant Court Heels",
         price: 2200,
-        image: "https://placehold.co/400x400/606060/BBB?text=Heels-I",
+        image: "https://placehold.co/400x400/606060/BBB?text=Elegant%20Court%20Heels",
         category: "Dress Shoes",
         brand: { id: "B002", name: "StrideRight" },
         createdAt: "2024-07-09T11:00:00Z",
-        salePercentage: 0
+        salePercentage: 0,
+        description: "Step into elegance with Court Heels. The classic silhouette and cushioned insole provide lasting comfort from morning to night.",
+        colors: ["#b68973", "#6c5b7b", "#fff"]
     },
     {
         id: 10,
         name: "Athletic Cross Trainers",
         price: 1700,
-        image: "https://placehold.co/400x400/505050/CCC?text=Trainers-J",
+        image: "https://placehold.co/400x400/505050/CCC?text=Athletic%20Cross%20Trainers",
         category: "Sneakers",
         brand: { id: "B005", name: "SwiftKicks" },
         createdAt: "2024-07-03T09:00:00Z",
-        salePercentage: 30
+        salePercentage: 30,
+        description: "Train in confidence with Athletic Cross Trainers. Designed for versatility and stability, they handle any workout with ease.",
+        colors: ["#22223b", "#f2e9e4", "#c9ada7"]
     },
     {
         id: 11,
         name: "Comfy House Slippers",
         price: 550,
-        image: "https://placehold.co/400x400/404040/DDD?text=Slippers-K",
+        image: "https://placehold.co/400x400/404040/DDD?text=Comfy%20House%20Slippers",
         category: "Slippers",
         brand: { id: "B003", name: "FootFlow" },
         createdAt: "2024-07-14T08:30:00Z",
-        salePercentage: 20
+        salePercentage: 20,
+        description: "Relax at home with ultra-soft Comfy House Slippers. Non-slip soles and plush lining keep your feet cozy on any floor.",
+        colors: ["#f8efd4", "#bdbdbd", "#ffb4a2"]
     },
     {
         id: 12,
         name: "Classic Boat Shoes",
         price: 1400,
-        image: "https://placehold.co/400x400/303030/EEE?text=BoatShoes-L",
+        image: "https://placehold.co/400x400/303030/EEE?text=Classic%20Boat%20Shoes",
         category: "Casual Shoes",
         brand: { id: "B001", name: "SoleMate" },
         createdAt: "2024-07-07T13:00:00Z",
-        salePercentage: 0
+        salePercentage: 0,
+        description: "Sail through your day in Classic Boat Shoes. Water-resistant material and timeless design make them a perfect casual staple.",
+        colors: ["#628395", "#e9d8a6", "#252422"]
     }
 ];
 

@@ -1,8 +1,17 @@
-import { Card, CardMedia, CardContent, Typography, Link } from "@mui/material";
+import {
+  Card, CardMedia, Box,
+  CardContent, Typography, Link, Chip
+} from "@mui/material";
 
 
 
 export default function ProductCard({ product, addToCart }) {
+
+  // calculate price
+  let discountedPrice = Math.floor(product.price * (product.salePercentage / 100));
+  let displayPrice = product.price - discountedPrice;
+
+
   return (
     <Card
       sx={{
@@ -32,12 +41,33 @@ export default function ProductCard({ product, addToCart }) {
         />
         <CardContent>
           <Typography variant="h6" sx={{
+            color: 'text.secondary',
             overflow: 'hidden',
             whiteSpace: 'nowrap',
             textOverflow: 'ellipsis', // Adds "..." to indicate truncated text
             width: { xs: '100%', md: '100%' },
-          }}>{product.name}</Typography>
-          <Typography color="text.secondary">{product.price}฿</Typography>
+          }}>{product.name}
+          </Typography>
+          <Box sx={{
+            display: 'flex',
+            gap: 2,
+            alignItems: 'center',
+          }}>
+            <Typography color="text.secondary">{displayPrice}฿</Typography>
+            {product.salePercentage > 0 && (
+              <>
+                <Typography
+                  sx={{ textDecoration: "line-through", 
+                    color: "text.disabled", ml: 1 }}
+                >
+                  {product.price}฿
+                </Typography>
+                <Chip label={`-${product.salePercentage}%`} color="error" sx={{ 
+                  ml: 1,
+                  textDecoration: 'none', }} />
+              </>
+            )}
+          </Box>
         </CardContent>
       </Link>
     </Card>

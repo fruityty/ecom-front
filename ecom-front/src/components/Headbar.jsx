@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { Link } from '@mui/material';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
 const pages = ['On Sale', 'New Arrivals', 'Brands'];
@@ -49,12 +50,13 @@ function Headbar() {
       <Container sx={{ }}>
         <Toolbar >
           {/* Desktop Logo & Pages (Left Section) */}
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, }} />
+          
+          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, }} /> */}
           <Typography
             variant="h1"
             noWrap
             component="a"
-            href="#Home"
+            href="/Home"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -68,6 +70,7 @@ function Headbar() {
           >
             SHOP.CO
           </Typography>
+         
 
           {/* Desktop Nav Pages - Removed flexGrow: 1 */}
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>

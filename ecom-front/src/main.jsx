@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App.jsx';
+import { CartProvider } from "./context/CartContext";
 
 // 1️⃣ Import from @mui/material/styles, not @mui/material
 import { ThemeProvider } from '@mui/material/styles';
@@ -15,7 +16,10 @@ createRoot(document.getElementById('root')).render(
     <ThemeProvider theme={theme}>
       {/* CssBaseline applies MUI’s CSS reset and lets your theme’s colors show correctly */}
       <CssBaseline />
-      <App />
+      <CartProvider>
+        <App />
+      </CartProvider>
+
     </ThemeProvider>
   </StrictMode>
 );

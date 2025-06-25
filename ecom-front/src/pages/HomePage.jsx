@@ -3,7 +3,7 @@ import Logobar from "../components/Logobar";
 import { Box } from '@mui/material';
 import Cover from "../components/Cover";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <MainLayout>
       

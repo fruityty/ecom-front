@@ -29,7 +29,7 @@ export default function ProductDetailPage() {
 
   return (
     <MainLayout>
-      <Box sx={{ maxWidth: 1200, mx: "auto", mt: 4, p: { xs: 1, md: 2 } }}>
+      <Box sx={{ width: '100%', mx: "auto", mt: 4, p: { xs: 1, md: 2 } }}>
         {/* Responsive Flex Layout */}
         <Box
           sx={{

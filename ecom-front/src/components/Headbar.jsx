@@ -47,8 +47,9 @@ function Headbar() {
 
   return (
     <AppBar position="static" sx={{ px: { xs: "0px", md: "0px" } }}>
-      <Container sx={{}}>
-        <Toolbar >
+      <Container disableGutters maxWidth={false} sx={{
+        padding: 0, maxWidth: "1240px"}}>
+        <Toolbar disableGutters>
           {/* Desktop Logo & Pages (Left Section) */}
 
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, }} /> */}

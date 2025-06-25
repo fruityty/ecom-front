@@ -1,18 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import theme from './theme';
 // import { ThemeProvider, CssBaseline } from '@mui/material';
-import Home from "./pages/Home";
-import ProductList from "./pages/ProductList"
-import ProductDetail from "./pages/ProductDetail";
+import ProductDetailPage from "./pages/ProductDetailPage";
 import CartPage from "./pages/CartPage";
+import HomePage from "./pages/HomePage";
+import ProductListPage from "./pages/ProductListPage";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="/products" element={<ProductList />} />
-        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/products" element={<ProductListPage />} />
+        <Route path="/product/:id" element={<ProductDetailPage />} />
         <Route path="/cart" element={<CartPage />} />
        
         </Routes>

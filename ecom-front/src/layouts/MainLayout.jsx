@@ -5,20 +5,24 @@ import Footbar from "../components/Footbar";
 
 export default function MainLayout({ children }) {
   return (
-    <Box 
-      sx={{ 
-        display: "flex", 
-        flexDirection: "column", 
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
         minHeight: "100vh",
         width: '100%',
       }}
     >
       <header><Headbar /></header>
 
-  
+
       <Container
-        maxWidth="lg" // <<<--- Use "lg" for 1200px max, or "xl" for 1536px max
+        maxWidth={false}              // <--- disables MUI's preset widths
+        disableGutters
         sx={{
+          padding: 0,
+          maxWidth: "1240px",    // Custom width
+          mx: "auto",            // <-- this centers the container horizontally
           flexGrow: 1, // Allows content to fill available vertical space
           py: 3,       // Padding top/bottom for overall content
           // If you want padding on the sides for the entire main content:
